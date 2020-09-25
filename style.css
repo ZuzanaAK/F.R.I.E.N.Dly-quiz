@@ -1,0 +1,40 @@
+body {
+    font-family: cursive;
+    margin: 10px;
+}
+
+#header {
+    background-image: url("../resources/images/header_image.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+}
+
+#f {
+    color: blue;
+}
+
+#r {
+    color: rgb(192, 17, 17)
+}
+
+#i{
+    color: yellow
+}
+
+#e{
+    color: green
+}
+
+#n{
+    color: pink
+}
+
+#d{
+    color: orange
+}
+
+.btn {
+    margin-bottom: 20px;
+}
