@@ -20,7 +20,7 @@ body {
 }
 
 #i{
-    color: yellow
+    color: rgb(218, 218, 45)
 }
 
 #e{
@@ -38,3 +38,33 @@ body {
 .btn {
     margin-bottom: 20px;
 }
+
+h1, p, h2 {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+#start-btn{
+    margin-left: 45%;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+#gif {
+    width: 300px;
+    margin-left: 29%
+}
+
+#sound {
+    width: 30px;
+    margin-left: 48%
+}
+
+/*
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+*/
