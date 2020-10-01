@@ -1,0 +1,63 @@
+body {
+    font-family: cursive;
+    width: 60%;
+    margin: 50px auto;  
+}
+
+
+#gameOver {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 25px;
+    border: solid 5px yellowgreen;
+    padding: 25px;
+}
+
+#game_over {
+    width: 50%;
+}
+
+#image {
+    margin: 25px;
+}
+
+#start-btn{
+    margin-top: 5px;
+    padding: 10px;
+    width: 20%;
+}
+
+#never_give_up {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#f {
+    color: blue;
+}
+
+#r {
+    color: rgb(192, 17, 17)
+}
+
+#i{
+    color: rgb(218, 218, 45)
+}
+
+#e{
+    color: green
+}
+
+#n{
+    color: pink
+}
+
+#d{
+    color: orange
+}
+
+#s{
+    color: purple
+}

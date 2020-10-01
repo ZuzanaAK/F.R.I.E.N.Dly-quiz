@@ -12,14 +12,16 @@ let startBtn = document.querySelector("#start-btn")
 // addEventListener for the start button
 // the button will remove splash screen and insert canvas
 
-
 let canvas, ctx;
 let showQuestion = true;
 let score = 0;
 let questionObj= {}
 let intervalId = 0;
 
+
+
 function renderGame(){
+   
   intervalId = setInterval (()=> { 
     
     ctx.clearRect(0,0,600,600)
@@ -36,10 +38,11 @@ function renderGame(){
       console.log(questionObj.question)
       drawQuestion (questionObj.question)
     }
+    win()
+    
   
- }, 50)
+ }, 15)
 }
-
 
 
   startBtn.addEventListener("click", () => {
@@ -51,19 +54,29 @@ function renderGame(){
     canvas = document.querySelector("canvas")
     canvas.style.backgroundColor = "#CA96F5"
     ctx = canvas.getContext("2d")
-    //add clearRect inside the interval
-    //newSound() //- not in the setInterval 
+
+    newSound()
     renderGame()
-    
+    newVideo()
 })
+
+let video;
+
+function newVideo() {
+  let ctx = canvas.getContext("2d")
+  let video = new Video ()
+  video.src= "../resources/images/joey_eating_pizza.webm"
+  ctx.drawVideo 
+}
 
 let myMusic;
 
-/*function newSound() {
+function newSound() {
   myMusic = new Audio("../resources/cut_smelly_cat.mp3")
+  myMusic.volume = "0.09";
   myMusic.play();
-} //0. property changing the volume
-*/
+} 
+
 let board = ""
 
 function addDoorFrame () {
@@ -72,6 +85,17 @@ function addDoorFrame () {
     let board = new Image()
     board.src = "../resources/images/board_frame02.png"
     ctx.drawImage(board, 105, 65 )
+
+}
+
+let peephole = ""
+
+function addpeephole () {
+
+    let ctx = canvas.getContext("2d")
+    let peephole = new Image()
+    peephole.src = "../resources/images/board_frame02.png"
+    ctx.drawImage(peephole, 105, 65 )
 
 }
 
@@ -103,9 +127,9 @@ function addPizzaSlice () {
  
   pizzaY+=pizzaIncrement
 
-  if (pizzaY === 500) {
-    //go to the screen GAME OVER
+  if (pizzaY === 450) {
     showQuestion = false
+    location.href = "gameOver.html";
   } 
   
 // }, 300)  
@@ -262,26 +286,26 @@ const questions = [
 function answerDetermine (answer) {
   if (answer == questionObj.solution) {
     score += 10
-    console.log("YAY")
     questionObj = pickQuestion()
     clearInterval(intervalId)
     pizzaY = 0
     renderGame()
 
-    // SPLICE THE QUESTIONS SO THAT IT GETS DELETED 
-    
   }
   else {
-    console.log('GAME OVER')
+    location.href = "gameOver.html";
   }
   
 }
 
 //random question picker
+let index;
 
 function pickQuestion() {
-
-  let index = getRandomQuestion(questions)
+  if (index !== undefined) {
+  questions.splice(index,1) 
+} console.log(questions.length)
+  index = getRandomQuestion(questions)
 
   let pickedQuestion = questions[index];
   return pickedQuestion
@@ -291,13 +315,51 @@ function getRandomQuestion(array) {
   return Math.floor(Math.random() * array.length)
 }
 
-//draw question
+//DRAW QUESTIONS
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  var words = text.split(' ');
+  var line = '';
+
+  for(var n = 0; n < words.length; n++) {
+    var testLine = line + words[n] + ' ';
+    var metrics = ctx.measureText(testLine);
+    var testWidth = metrics.width;
+    if (testWidth > maxWidth && n > 0) {
+      ctx.fillText(line, x, y);
+      line = words[n] + ' ';
+      y += lineHeight;
+    }
+    else {
+      line = testLine;
+    }
+  }
+  ctx.font = "20px cursive"
+  ctx.fillStyle = "#36352E ";
+  ctx.fillText(line, x, y);
+}
+
+
 
 function drawQuestion(question) {
- // let ctx = canvas.getContext("2d")
-  ctx.font = "20px cursive"
-  ctx.fillStyle = "#EDD00C";
-  //console.log(pickQuestion())
-  //console.log('Inside draw ', question)
-  ctx.fillText(question, 210,190 ) //the question + the coordinates of the door
+
+
+var maxWidth = 165;
+var lineHeight = 24;
+var x = 215;
+var y = 210;
+var text = question 
+
+
+wrapText(ctx, text, x, y, maxWidth, lineHeight);
+
+ctx.fillText('Score: ' + score, 250, canvas.height-50)
+}
+
+
+//FOR WINNING THE GAME
+function win() {
+  if (score === 40) {
+    location.href = "winScreen.html";
+  }
 }
