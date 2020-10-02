@@ -1,14 +1,14 @@
 # Project's name
 
 ## Description
-Are you a F.R.I.E.N.D.S fan? Can't you stop watching Friends over and over again? Then this game is just for you!
-This game is for a single player only. Each correctly answered question will get you 10 points, an incorrect answer will result in GAME OVER. You have 3 seconds to answer each question, if you fail to answer in this 3 second period this as well will result in GAME OVER.
-You win the game once you answered 5 question in a row correctly.
+Are you a F.R.I.E.N.D.S fan? Can't you stop watching Friends over and over again? Then this game is your moment to shine!
+This game is for a single player only. Each correctly answered question will get you 10 points, an incorrect answer will result in GAME OVER. The time limit for each question is measured by a slice of pizza falling down on Joey. Once he reaches his pizza, the time is up and you loose.
+You win the game once you answered 5 questions in a row correctly.
 
 ## MVP (DOM - CANVAS)
-- game has 6 characters - Ross, Phoebe, Monica, Rachel, Chandler and Joe
+- game has 6 characters - Ross, Phoebe, Monica, Rachel, Chandler and Joey
 - questions are asked in a way that the correct answer is one of the characters, you submit your answer by clicking on a character
-- time is meassured by pizza slices falling down on Joe (meaning the time is up when Joe eats all the pizza slices falling down on him)
+- time is meassured by a pizza slice falling down on Joey
 - the GAME OVER window will appear when the player doesn't choose any answer in the given time-frame or if the player gives the incorrect answer
 - the player wins when they answer correctly 5 questions in a row
 - the player has only 1 life
@@ -16,7 +16,6 @@ You win the game once you answered 5 question in a row correctly.
 ## Backlog
 - baground music Phoebe's Smelly Cat
 - add lives
-- add winning screen
 
 ## Data structure
 ## main.js
